@@ -94,6 +94,26 @@ namespace TixFix.WebMVC.Controllers
             return View(model);
         }
 
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateTicketService();
+            var model = svc.GetTicketById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateTicketService();
+            service.DeleteTicket(id);
+            TempData["SaveResult"] = "Your ticket was deleted.";
+            return RedirectToAction("Index");
+        }
+
 
         private TicketService CreateTicketService()
         {

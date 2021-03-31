@@ -98,5 +98,20 @@ namespace TixFix.Services
 
             }
         }
+
+        public bool DeleteTicket(int ticketId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Tickets
+                        .Single(t => t.TicketId == ticketId && t.OwnerId == _userId);
+
+                ctx.Tickets.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
