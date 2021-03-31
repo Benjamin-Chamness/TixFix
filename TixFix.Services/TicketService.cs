@@ -53,7 +53,8 @@ namespace TixFix.Services
                                     TicketId = t.TicketId,
                                     OpponentId = t.OpponentId,
                                     Price = t.Price,
-                                    DateOfGame = t.DateOfGame
+                                    DateOfGame = t.DateOfGame,
+                                    IsAvailable = t.IsAvailable
                                 }
                         );
 

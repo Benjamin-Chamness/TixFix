@@ -27,5 +27,7 @@ namespace TixFix.Data
         [Required]
         public bool IsAvailable { get; set; }
 
+        //public List<Seat> Seats { get; set; }
+
     }
 }
