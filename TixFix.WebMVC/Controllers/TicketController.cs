@@ -33,17 +33,21 @@ namespace TixFix.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(TicketCreate model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
+            if (!ModelState.IsValid) return View(model);
+            
             var service = CreateTicketService();
 
-            service.CreateTicket(model);
-            return RedirectToAction("Index");
+            if (service.CreateTicket(model))
+            {
+                TempData["SaveResult"] = "Your ticket was created.";
+                return RedirectToAction("Index");
+            }
 
+            ModelState.AddModelError("", "Ticket could not be created.");
+
+            return View(model);
         }
+
 
         private TicketService CreateTicketService()
         {
