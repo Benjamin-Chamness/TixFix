@@ -59,5 +59,25 @@ namespace TixFix.Services
                 return query.ToArray();
             }
         }
+
+        public TicketDetail GetTicketById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Tickets
+                        .Single(t => t.TicketId == id && t.OwnerId == _userId);
+                return
+                    new TicketDetail
+                    {
+                        TicketId = entity.TicketId,
+                        OpponentId = entity.OpponentId,
+                        Price = entity.Price,
+                        DateOfGame = entity.DateOfGame,
+                        IsAvailable = entity.IsAvailable
+                    };
+            }
+        }
     }
 }

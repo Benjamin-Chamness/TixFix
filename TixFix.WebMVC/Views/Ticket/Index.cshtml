@@ -53,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.DateOfGame)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new {  id=item.TicketId  }) |
+            @Html.ActionLink("Details", "Details", new {  id=item.TicketId  }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.TicketId  })
         </td>
     </tr>
 }
