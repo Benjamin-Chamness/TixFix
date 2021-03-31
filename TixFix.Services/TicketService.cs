@@ -27,7 +27,8 @@ namespace TixFix.Services
                     TicketId = model.TicketId,
                     OpponentId = model.OpponentId,
                     Price = model.Price,
-                    DateOfGame = model.DateOfGame
+                    DateOfGame = model.DateOfGame,
+                    IsAvailable = model.IsAvailable
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -77,6 +78,24 @@ namespace TixFix.Services
                         DateOfGame = entity.DateOfGame,
                         IsAvailable = entity.IsAvailable
                     };
+            }
+        }
+
+        public bool UpdateTicket(TicketEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                            .Tickets
+                            .Single(t => t.TicketId == model.TicketId && t.OwnerId == _userId);
+
+                entity.TicketId = model.TicketId;
+                entity.Price = model.Price;
+                entity.DateOfGame = model.DateOfGame;
+                entity.IsAvailable = model.IsAvailable;
+
+                return ctx.SaveChanges() == 1;
+
             }
         }
     }

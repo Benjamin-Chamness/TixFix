@@ -19,6 +19,8 @@ namespace TixFix.Models
         
         [Display(Name ="Game Day")]
         public DateTime DateOfGame { get; set; }
+
+        public bool IsAvailable { get; set; }
             
     }
 }
