@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TixFix.Models;
+using TixFix.Services;
 
 namespace TixFix.WebMVC.Controllers
 {
@@ -13,7 +15,10 @@ namespace TixFix.WebMVC.Controllers
         // GET: Ticket
         public ActionResult Index()
         {
-            var model = new TicketListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new TicketService(userId);
+            var model = service.GetTickets();
+
             return View(model);
         }
 
@@ -28,11 +33,23 @@ namespace TixFix.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(TicketCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View(model);
+
+            var service = CreateTicketService();
+
+            service.CreateTicket(model);
+            return RedirectToAction("Index");
+
+        }
+
+        private TicketService CreateTicketService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new TicketService(userId);
+            return service;
         }
     }
 }

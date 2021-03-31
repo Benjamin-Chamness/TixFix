@@ -55,10 +55,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TicketService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TixFix.Data\TixFix.Data.csproj">
+      <Project>{a9a45f6c-85ad-4fd7-bce6-07a7754e76ae}</Project>
+      <Name>TixFix.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TixFix.Models\TixFix.Models.csproj">
+      <Project>{b4775834-8102-4119-8eaa-a7d56b233c11}</Project>
+      <Name>TixFix.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
