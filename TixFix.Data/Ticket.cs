@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +15,6 @@ namespace TixFix.Data
 
         [Required]
         public Guid OwnerId { get; set; }
-                
-        [Display(Name ="Opponent")]
-        public int OpponentId { get; set; }
 
         [Required]
         public decimal Price { get; set; }
@@ -27,7 +25,19 @@ namespace TixFix.Data
         [Required]
         public bool IsAvailable { get; set; }
 
-        //public List<Seat> Seats { get; set; }
+        //[ForeignKey(nameof(Opponent))]
+        [Display(Name = "Opponent")]
+        public int OpponentId { get; set; }
+        //public virtual Opponent Opponent { get; set; }
+
+
+        //[ForeignKey (nameof(Seat))]
+        [Display(Name = "Seat Number")]
+        public int SeatId { get; set; }
+        //public virutal Seat StadiumSeating { get; set; }
+                
+        
+
 
     }
 }

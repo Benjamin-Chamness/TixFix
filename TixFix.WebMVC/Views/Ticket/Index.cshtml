@@ -30,6 +30,9 @@
             @Html.DisplayNameFor(model => model.OpponentId)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.SeatId)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
@@ -49,6 +52,9 @@
         @Html.DisplayFor(modelItem => item.OpponentId)
     </td>
     <td>
+        @Html.DisplayFor(modelItem => item.SeatId)
+    </td>
+    <td>
         @Html.DisplayFor(modelItem => item.Price)
     </td>
     <td>
@@ -58,9 +64,9 @@
         @Html.DisplayFor(modelItem => item.IsAvailable)
     </td>
     <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.TicketId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.TicketId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.TicketId })
+        @Html.ActionLink("Change", "Edit", new { id = item.TicketId }) |
+        @Html.ActionLink("More Info", "Details", new { id = item.TicketId }) |
+        @Html.ActionLink("Remove", "Delete", new { id = item.TicketId })
     </td>
 </tr>
 }
