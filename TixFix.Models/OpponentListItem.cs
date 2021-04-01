@@ -4,18 +4,18 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TixFix.Data;
 
-namespace TixFix.Data
+namespace TixFix.Models
 {
-    public class Opponent
+    public class OpponentListItem
     {
-        [Key]
         public int OpponentId { get; set; }
 
         [Required]
         public string Name { get; set; }
 
-        [Display(Name = "Ticket List")]
+        [Display (Name= "Ticket List")]
         public virtual List<Ticket> Tickets { get; set; }
     }
 }
