@@ -3,10 +3,35 @@ namespace TixFix.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class first : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Opponent",
+                c => new
+                    {
+                        OpponentId = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.OpponentId);
+            
+            CreateTable(
+                "dbo.Ticket",
+                c => new
+                    {
+                        TicketId = c.Int(nullable: false, identity: true),
+                        OwnerId = c.Guid(nullable: false),
+                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        DateOfGame = c.DateTime(nullable: false),
+                        IsAvailable = c.Boolean(nullable: false),
+                        OpponentId = c.Int(nullable: false),
+                        SeatId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.TicketId)
+                .ForeignKey("dbo.Opponent", t => t.OpponentId, cascadeDelete: true)
+                .Index(t => t.OpponentId);
+            
             CreateTable(
                 "dbo.IdentityRole",
                 c => new
@@ -30,19 +55,6 @@ namespace TixFix.Data.Migrations
                 .ForeignKey("dbo.ApplicationUser", t => t.ApplicationUser_Id)
                 .Index(t => t.IdentityRole_Id)
                 .Index(t => t.ApplicationUser_Id);
-            
-            CreateTable(
-                "dbo.Ticket",
-                c => new
-                    {
-                        TicketId = c.Int(nullable: false, identity: true),
-                        OwnerId = c.Guid(nullable: false),
-                        OpponentId = c.Int(nullable: false),
-                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        DateOfGame = c.DateTime(nullable: false),
-                        IsAvailable = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.TicketId);
             
             CreateTable(
                 "dbo.ApplicationUser",
@@ -98,16 +110,19 @@ namespace TixFix.Data.Migrations
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
+            DropForeignKey("dbo.Ticket", "OpponentId", "dbo.Opponent");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
+            DropIndex("dbo.Ticket", new[] { "OpponentId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
-            DropTable("dbo.Ticket");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
+            DropTable("dbo.Ticket");
+            DropTable("dbo.Opponent");
         }
     }
 }

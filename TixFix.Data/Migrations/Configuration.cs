@@ -10,7 +10,6 @@ namespace TixFix.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "TixFix.Data.ApplicationDbContext";
         }
 
         protected override void Seed(TixFix.Data.ApplicationDbContext context)

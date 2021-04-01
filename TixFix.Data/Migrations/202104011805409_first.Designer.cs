@@ -13,7 +13,7 @@ namespace TixFix.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202104011327494_first"; }
+            get { return "202104011805409_first"; }
         }
         
         string IMigrationMetadata.Source
