@@ -9,6 +9,7 @@ namespace TixFix.Models
 {
     public class OpponentCreate
     {
+        public int OpponentId { get; set; }
         [Required]
         public string Name { get; set; }
     }

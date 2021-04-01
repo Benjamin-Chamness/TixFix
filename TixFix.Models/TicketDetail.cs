@@ -11,7 +11,6 @@ namespace TixFix.Models
     {
         public int TicketId { get; set; }
 
-        
         [Display(Name = "Opponent")]
         public int OpponentId { get; set; }
 

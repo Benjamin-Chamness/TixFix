@@ -26,6 +26,7 @@ namespace TixFix.Data
         public bool IsAvailable { get; set; }
 
         [ForeignKey(nameof(Opponent))]
+        [Display(Name= "Opponent")]
         public int OpponentId { get; set; }
         public virtual Opponent Opponent { get; set; }
 

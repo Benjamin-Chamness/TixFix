@@ -22,7 +22,7 @@ namespace TixFix.Services
         {
             var entity = new Opponent()
             {
-
+                
                 Name = model.Name
             };
 
@@ -46,7 +46,7 @@ namespace TixFix.Services
             return new OpponentListItem()
             {
 
-                OpponentId = model.OpponentId,
+                
                 Name = model.Name,
             };
         }
