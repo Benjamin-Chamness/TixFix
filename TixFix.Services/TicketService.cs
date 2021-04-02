@@ -25,17 +25,17 @@ namespace TixFix.Services
                 {
                     OwnerId = _userId,
                     TicketId = model.TicketId,
-                    OpponentId = model.OpponentId,
+                    Opponent = model.Opponent,
                     SeatId = model.SeatId,
                     Price = model.Price,
                     DateOfGame = model.DateOfGame,
-                    IsAvailable = model.IsAvailable
+                    IsAvailable = model.IsAvailable,
                 };
 
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Tickets.Add(entity);
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() > 0;
             }
         }
 
@@ -56,9 +56,9 @@ namespace TixFix.Services
                                     SeatId = t.SeatId,
                                     Price = t.Price,
                                     DateOfGame = t.DateOfGame,
-                                    IsAvailable = t.IsAvailable
-                                }
-                        );
+                                    IsAvailable = t.IsAvailable,
+                                    Opponent = t.Opponent
+                                });
 
                 return query.ToArray();
             }
@@ -80,7 +80,11 @@ namespace TixFix.Services
                         SeatId = entity.SeatId,
                         Price = entity.Price,
                         DateOfGame = entity.DateOfGame,
-                        IsAvailable = entity.IsAvailable
+                        IsAvailable = entity.IsAvailable,
+                        Opponent = new Opponent
+                        {
+                            Name = entity.Opponent.Name
+                        }
                     };
             }
         }

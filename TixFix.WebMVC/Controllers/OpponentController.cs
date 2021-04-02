@@ -31,17 +31,29 @@ namespace TixFix.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(OpponentCreate model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            if (!ModelState.IsValid) return View(model);
 
+            var service = CreateOpponentService();
+           
+            if (service.CreateOpponent(model))
+            {
+                TempData["SaveResult"] = "Your opponent was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Opponent could not be created.");
+
+            return View(model);
+        }
+            
+        private OpponentService CreateOpponentService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new OpponentService(userId);
-
-            service.CreateOpponent(model);
-
-            return RedirectToAction("Index");
+            return service;
         }
     }
 }
+
+
+

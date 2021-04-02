@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TixFix.Data;
 
 namespace TixFix.Models
 {
@@ -14,6 +15,8 @@ namespace TixFix.Models
                
         [Display(Name = "Opponent")]
         public int OpponentId { get; set; }
+
+        public virtual Opponent Opponent { get; set; }
 
         [Display(Name = "Seat Number")]
         public int SeatId { get; set; }

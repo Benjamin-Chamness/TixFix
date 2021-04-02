@@ -31,8 +31,9 @@ namespace TixFix.WebMVC.Controllers
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(TicketCreate model)
-        {
+        
+       public ActionResult Create(TicketCreate model)
+       {
             if (!ModelState.IsValid) return View(model);
             
             var service = CreateTicketService();

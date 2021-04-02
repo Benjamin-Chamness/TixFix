@@ -22,14 +22,14 @@ namespace TixFix.Services
         {
             var entity = new Opponent()
             {
-                
+                OpponentId = model.OpponentId,
                 Name = model.Name
             };
 
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Opponents.Add(entity);
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() > 0;
             }
         }
 
@@ -45,13 +45,14 @@ namespace TixFix.Services
         {
             return new OpponentListItem()
             {
-
-                
-                Name = model.Name,
+                OpponentId = model.OpponentId,
+                Name = model.Name
             };
         }
     }
 }
+
+                
             
             
 
