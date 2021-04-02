@@ -245,6 +245,7 @@
     <Content Include="Views\Opponent\Create.cshtml" />
     <Content Include="Views\Opponent\Details.cshtml" />
     <Content Include="Views\Opponent\Edit.cshtml" />
+    <Content Include="Views\Opponent\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

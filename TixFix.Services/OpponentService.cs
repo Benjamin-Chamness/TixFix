@@ -59,6 +59,13 @@ namespace TixFix.Services
             }
         }
 
+        public bool DeleteOpponent(int opponentId)
+        {
+            Opponent opponentToDelete = _context.Opponents.Single(o => o.OpponentId == opponentId);
+            _context.Opponents.Remove(opponentToDelete);
+            return _context.SaveChanges() > 0;
+        }
+
         //Helper Methods
         public OpponentListItem CreateOpponentListItem(Opponent model)
         {

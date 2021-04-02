@@ -34,7 +34,7 @@ namespace TixFix.WebMVC.Controllers
             if (!ModelState.IsValid) return View(model);
 
             var service = CreateOpponentService();
-           
+
             if (service.CreateOpponent(model))
             {
                 TempData["SaveResult"] = "Your opponent was created.";
@@ -71,8 +71,8 @@ namespace TixFix.WebMVC.Controllers
         public ActionResult Edit(int id, OpponentEdit model)
         {
             if (!ModelState.IsValid) return View(model);
-            
-            if(model.OpponentId != id)
+
+            if (model.OpponentId != id)
             {
                 ModelState.AddModelError("", "Id does not match");
                 return View(model);
@@ -87,6 +87,29 @@ namespace TixFix.WebMVC.Controllers
             ModelState.AddModelError("", "Opponent could not be updated.");
             return View();
         }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateOpponentService();
+            var model = svc.GetOpponentById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult DeleteOpponent(int id)
+        {
+            var service = CreateOpponentService();
+            service.DeleteOpponent(id);
+            TempData["SaveResult"] = "Opponent successfully deleted.";
+            return RedirectToAction("Index");
+        }
+
+
 
 
         //Helper methods    
