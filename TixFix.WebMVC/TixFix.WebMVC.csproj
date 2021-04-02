@@ -243,6 +243,8 @@
     <Content Include="Views\Ticket\Delete.cshtml" />
     <Content Include="Views\Opponent\Index.cshtml" />
     <Content Include="Views\Opponent\Create.cshtml" />
+    <Content Include="Views\Opponent\Details.cshtml" />
+    <Content Include="Views\Opponent\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

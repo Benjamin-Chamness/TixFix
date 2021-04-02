@@ -45,7 +45,51 @@ namespace TixFix.WebMVC.Controllers
 
             return View(model);
         }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateOpponentService();
+            var model = svc.GetOpponentById(id);
+
+            return View(model);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateOpponentService();
+            var detail = service.GetOpponentById(id);
+            var model = new OpponentEdit
+            {
+                OpponentId = detail.OpponentId,
+                Name = detail.Name
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, OpponentEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
             
+            if(model.OpponentId != id)
+            {
+                ModelState.AddModelError("", "Id does not match");
+                return View(model);
+            }
+            var service = CreateOpponentService();
+
+            if (service.UpdateOpponent(model))
+            {
+                TempData["SaveResult"] = "Opponent updated successfully.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Opponent could not be updated.");
+            return View();
+        }
+
+
+        //Helper methods    
         private OpponentService CreateOpponentService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

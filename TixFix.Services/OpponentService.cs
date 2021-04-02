@@ -40,10 +40,38 @@ namespace TixFix.Services
             return opponentListItems;
         }
 
+        public OpponentDetail GetOpponentById(int id)
+        {
+            
+                Opponent opponentToGet = _context.Opponents.Single(o => o.OpponentId == id);
+                return CreateOpponentDetail(opponentToGet);
+        }
+
+        public bool UpdateOpponent(OpponentEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Opponents.Single(o => o.OpponentId == model.OpponentId);
+                entity.OpponentId = model.OpponentId;
+                entity.Name = model.Name;
+
+                return ctx.SaveChanges() > 0;
+            }
+        }
+
         //Helper Methods
         public OpponentListItem CreateOpponentListItem(Opponent model)
         {
             return new OpponentListItem()
+            {
+                OpponentId = model.OpponentId,
+                Name = model.Name
+            };
+        }
+
+        public OpponentDetail CreateOpponentDetail(Opponent model)
+        {
+            return new OpponentDetail()
             {
                 OpponentId = model.OpponentId,
                 Name = model.Name
