@@ -11,7 +11,7 @@ namespace TixFix.Data
     {
         [Key]
         public int OpponentId { get; set; }
-        public Guid OwnerId { get; set; }
+        //public Guid OwnerId { get; set; }
 
         [Required]
         public string Name { get; set; }
