@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TixFix.Data
+namespace TixFix.Models
 {
-    public class Customer
+    public class CustomerCreate
     {
-        [Key]
-        public int CustomerId { get; set; }
-        public Guid OwnerId { get; set; }
-
         [Required]
         public string FirstName { get; set; }
 
@@ -22,8 +17,5 @@ namespace TixFix.Data
 
         [Required]
         public string Email { get; set; }
-
-        [ForeignKey(nameof(Ticket))]
-        public List<Ticket> Tickets { get; set; }
     }
 }
