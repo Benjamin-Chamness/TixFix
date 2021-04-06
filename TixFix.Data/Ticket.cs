@@ -12,6 +12,7 @@ namespace TixFix.Data
     {
         [Key]
         public int TicketId { get; set; }
+        
 
         [Required]
         public Guid OwnerId { get; set; }
@@ -26,7 +27,7 @@ namespace TixFix.Data
         public bool IsAvailable { get; set; }
 
         [ForeignKey(nameof(Opponent))]
-        //[Display(Name= "Opponent")]
+        [Display(Name= "Opponent")]
         public int OpponentId { get; set; }
         public virtual Opponent Opponent { get; set; }
 

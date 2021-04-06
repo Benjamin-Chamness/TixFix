@@ -27,7 +27,7 @@ namespace TixFix.WebMVC.Controllers
             return View();
         }
 
-        [HttpPost]
+        /*[HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(OpponentCreate model)
         {
@@ -44,7 +44,7 @@ namespace TixFix.WebMVC.Controllers
             ModelState.AddModelError("", "Opponent could not be created.");
 
             return View(model);
-        }
+        }*/
 
         public ActionResult Details(int id)
         {

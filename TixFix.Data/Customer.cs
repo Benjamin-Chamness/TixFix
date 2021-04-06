@@ -23,7 +23,7 @@ namespace TixFix.Data
         [Required]
         public string Email { get; set; }
 
-        [ForeignKey(nameof(Ticket))]
-        public List<Ticket> Tickets { get; set; }
+        
+        public virtual Ticket Tickets { get; set; }
     }
 }

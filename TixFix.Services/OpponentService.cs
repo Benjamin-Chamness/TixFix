@@ -18,7 +18,7 @@ namespace TixFix.Services
             _userId = userId;
         }
 
-        public bool CreateOpponent(OpponentCreate model)
+        /*public bool CreateOpponent(OpponentCreate model)
         {
             var entity = new Opponent()
             {
@@ -29,9 +29,9 @@ namespace TixFix.Services
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Opponents.Add(entity);
-                return ctx.SaveChanges() > 0;
+                return ctx.SaveChanges() == 1;
             }
-        }
+        }*/
 
         public List<OpponentListItem> GetOpponents()
         {

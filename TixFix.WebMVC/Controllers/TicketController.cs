@@ -17,7 +17,7 @@ namespace TixFix.WebMVC.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new TicketService(userId);
-            var model = service.GetTickets();
+            var model = service.GetTicketList();
 
             return View(model);
         }
@@ -96,10 +96,10 @@ namespace TixFix.WebMVC.Controllers
         }
 
         [ActionName("Delete")]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
             var svc = CreateTicketService();
-            var model = svc.GetTicketById(id);
+            var model = svc.GetTicketById((int)id);
 
             return View(model);
         }
@@ -107,7 +107,7 @@ namespace TixFix.WebMVC.Controllers
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeletePost(int id)
+        public ActionResult DeleteTicket(int id)
         {
             var service = CreateTicketService();
             service.DeleteTicket(id);

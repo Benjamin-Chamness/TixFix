@@ -39,7 +39,7 @@ namespace TixFix.Services
             }
         }
 
-        public IEnumerable<TicketListItem> GetTickets()
+        public IEnumerable<TicketListItem> GetTicketList()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -52,7 +52,6 @@ namespace TixFix.Services
                                 new TicketListItem
                                 {
                                     TicketId = t.TicketId,
-                                    OpponentId = t.OpponentId,
                                     SeatId = t.SeatId,
                                     Price = t.Price,
                                     DateOfGame = t.DateOfGame,
@@ -76,7 +75,6 @@ namespace TixFix.Services
                     new TicketDetail
                     {
                         TicketId = entity.TicketId,
-                        OpponentId = entity.OpponentId,
                         SeatId = entity.SeatId,
                         Price = entity.Price,
                         DateOfGame = entity.DateOfGame,
@@ -107,14 +105,14 @@ namespace TixFix.Services
             }
         }
 
-        public bool DeleteTicket(int ticketId)
+        public bool DeleteTicket(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Tickets
-                        .Single(t => t.TicketId == ticketId && t.OwnerId == _userId);
+                        .Single(t => t.OwnerId == _userId);
 
                 ctx.Tickets.Remove(entity);
 

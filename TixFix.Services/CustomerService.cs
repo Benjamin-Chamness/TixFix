@@ -30,7 +30,7 @@ namespace TixFix.Services
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Customers.Add(entity);
-                return ctx.SaveChanges() > 0;
+                return ctx.SaveChanges()== 1;
             }
         }
 
@@ -45,6 +45,7 @@ namespace TixFix.Services
                         FirstName = c.FirstName,
                         LastName = c.LastName
                     });
+
                 return query.ToArray();
             }
         }
