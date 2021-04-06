@@ -66,6 +66,29 @@ namespace TixFix.WebMVC.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit (int id, CustomerEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.CustomerId != id)
+            {
+                ModelState.AddModelError("", "Id does not match");
+                return View(model);
+            }
+
+            var service = CreateCustomerService();
+
+            if (service.UpdateCustomer(model))
+            {
+                TempData["SaveResult"] = "Customer updated successfully.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Customer could not be updated.");
+            return View();
+        }
+
         //Helper Method
 
         private CustomerService CreateCustomerService()
