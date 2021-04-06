@@ -10,7 +10,7 @@ namespace TixFix.Models
 {
     public class TicketCreate
     {
-        [Required]
+       
         public int TicketId { get; set; }
         
         [Display(Name = "Opponent")]

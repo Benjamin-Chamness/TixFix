@@ -44,6 +44,28 @@ namespace TixFix.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreateCustomerService();
+            var model = svc.GetCustomerById(id);
+
+            return View(model);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var service = CreateCustomerService();
+            var detail = service.GetCustomerById(id);
+            var model = new CustomerEdit
+            {
+                CustomerId = detail.CustomerId,
+                FirstName = detail.FirstName,
+                LastName = detail.LastName,
+                Email = detail.Email
+            };
+            return View(model);
+        }
+
         //Helper Method
 
         private CustomerService CreateCustomerService()
@@ -53,7 +75,7 @@ namespace TixFix.WebMVC.Controllers
             return service;
         }
 
-
+        
 
 
     }

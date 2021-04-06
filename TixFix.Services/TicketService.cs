@@ -24,7 +24,7 @@ namespace TixFix.Services
                 new Ticket()
                 {
                     OwnerId = _userId,
-                    TicketId = model.TicketId,
+                    //TicketId = model.TicketId,
                     Opponent = model.Opponent,
                     SeatId = model.SeatId,
                     Price = model.Price,
@@ -51,7 +51,7 @@ namespace TixFix.Services
                             t =>
                                 new TicketListItem
                                 {
-                                    TicketId = t.TicketId,
+                                    //TicketId = t.TicketId,
                                     SeatId = t.SeatId,
                                     Price = t.Price,
                                     DateOfGame = t.DateOfGame,
@@ -74,7 +74,7 @@ namespace TixFix.Services
                 return
                     new TicketDetail
                     {
-                        TicketId = entity.TicketId,
+                        //TicketId = entity.TicketId,
                         SeatId = entity.SeatId,
                         Price = entity.Price,
                         DateOfGame = entity.DateOfGame,

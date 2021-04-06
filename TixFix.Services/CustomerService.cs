@@ -49,5 +49,36 @@ namespace TixFix.Services
                 return query.ToArray();
             }
         }
+
+        public CustomerDetail GetCustomerById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Customers.Single(c => c.CustomerId == id && c.OwnerId == _userId);
+
+                return new CustomerDetail
+                {
+                    CustomerId = entity.CustomerId,
+                    FirstName = entity.FirstName,
+                    LastName = entity.LastName,
+                    Email = entity.Email
+                };
+            }
+        }
+
+        public bool UpdateCustomer(CustomerEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Customers
+                    .Single(c => c.CustomerId == model.CustomerId && c.OwnerId == _userId);
+
+                entity.FirstName = model.FirstName;
+                entity.LastName = model.LastName;
+                entity.Email = model.Email;
+
+                return ctx.SaveChanges() > 0;
+            }
+        }
     }
 }
