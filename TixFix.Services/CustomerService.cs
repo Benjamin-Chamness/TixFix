@@ -80,5 +80,18 @@ namespace TixFix.Services
                 return ctx.SaveChanges() > 0;
             }
         }
+
+        public bool DeleteCustomer(int customerId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Customers
+                    .Single(c => c.CustomerId == customerId && c.OwnerId == _userId);
+
+                ctx.Customers.Remove(entity);
+
+                return ctx.SaveChanges() > 0;
+            }
+        }
     }
 }

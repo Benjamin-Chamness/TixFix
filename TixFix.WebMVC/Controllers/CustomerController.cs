@@ -29,18 +29,18 @@ namespace TixFix.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create (CustomerCreate model)
+        public ActionResult Create(CustomerCreate model)
         {
             if (!ModelState.IsValid) return View(model);
             var service = CreateCustomerService();
 
-            if(service.CreateCustomer(model))
+            if (service.CreateCustomer(model))
             {
                 TempData["SaveResult"] = "Customer created successfully";
                 return RedirectToAction("Index");
             }
             ModelState.AddModelError("", "Customer could not be created");
-                
+
             return View(model);
         }
 
@@ -68,11 +68,11 @@ namespace TixFix.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit (int id, CustomerEdit model)
+        public ActionResult Edit(int id, CustomerEdit model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            if(model.CustomerId != id)
+            if (model.CustomerId != id)
             {
                 ModelState.AddModelError("", "Id does not match");
                 return View(model);
@@ -87,6 +87,27 @@ namespace TixFix.WebMVC.Controllers
             }
             ModelState.AddModelError("", "Customer could not be updated.");
             return View();
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateCustomerService();
+            var model = svc.GetCustomerById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteCustomer(int id)
+        {
+            var service = CreateCustomerService();
+            service.DeleteCustomer(id);
+
+            TempData["SaveResult"] = "Customer removed successfully.";
+            return RedirectToAction("Index");
         }
 
         //Helper Method
