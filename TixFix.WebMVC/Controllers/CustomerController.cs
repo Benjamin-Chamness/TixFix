@@ -31,18 +31,30 @@ namespace TixFix.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create (CustomerCreate model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            if (!ModelState.IsValid) return View(model);
+            var service = CreateCustomerService();
 
+            if(service.CreateCustomer(model))
+            {
+                TempData["SaveResult"] = "Customer created successfully";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Customer could not be created");
+                
+            return View(model);
+        }
+
+        //Helper Method
+
+        private CustomerService CreateCustomerService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new CustomerService(userId);
-
-            service.CreateCustomer(model);
-
-            return RedirectToAction("Index");
-
+            return service;
         }
+
+
+
+
     }
 }
