@@ -19,9 +19,7 @@ namespace TixFix.Models
 
         [Required]
         public string Email { get; set; }
-
-       
-        //public int TicketId { get; set; }
-       
+          
+             
     }
 }

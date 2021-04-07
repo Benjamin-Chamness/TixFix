@@ -22,7 +22,7 @@ namespace TixFix.Services
         public bool CreateTicket(TicketCreate model)
         {
             var entity =
-                new Data.TicketDisplay()
+                new Ticket()
                 {
                     OwnerId = _userId,
                     Opponent = model.Opponent,
@@ -89,7 +89,7 @@ namespace TixFix.Services
                             .Tickets
                             .Single(t => t.TicketId == model.TicketId && t.OwnerId == _userId);
 
-                //entity.TicketId = model.TicketId;
+                
                 entity.Price = model.Price;
                 entity.DateOfGame = model.DateOfGame;
                 entity.IsAvailable = model.IsAvailable;
@@ -115,6 +115,3 @@ namespace TixFix.Services
         }
     }
 }
-/*{
-    Name = entity.Opponent.Name
-                        }*/

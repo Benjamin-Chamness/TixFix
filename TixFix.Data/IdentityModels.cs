@@ -32,7 +32,7 @@ namespace TixFix.Data
             return new ApplicationDbContext();
         }
 
-        public DbSet <TicketDisplay> Tickets { get; set; }
+        public DbSet <Ticket> Tickets { get; set; }
         public DbSet<Opponent> Opponents { get; set; }
         public DbSet<Customer> Customers { get; set; }
 

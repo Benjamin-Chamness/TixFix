@@ -25,12 +25,13 @@ namespace TixFix.Services
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 Email = model.Email,
+                                
             };
 
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Customers.Add(entity);
-                return ctx.SaveChanges()== 1;
+                return ctx.SaveChanges() > 0;
             }
         }
 
@@ -44,7 +45,7 @@ namespace TixFix.Services
                         CustomerId = c.CustomerId,
                         FirstName = c.FirstName,
                         LastName = c.LastName,
-                        Tickets = c.Tickets
+                        
                     });
 
                 return query.ToArray();
@@ -94,5 +95,6 @@ namespace TixFix.Services
                 return ctx.SaveChanges() > 0;
             }
         }
+            
     }
 }

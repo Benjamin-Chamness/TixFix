@@ -18,6 +18,7 @@ namespace TixFix.Data
         [Required]
         public string Name { get; set; }
 
+
              
     }
 }
