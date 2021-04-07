@@ -18,8 +18,6 @@ namespace TixFix.Data
         [Required]
         public string Name { get; set; }
 
-        [ForeignKey(nameof(TicketDisplay))]
-        [Display(Name = "Game Information")]
-        public string TicketDisplay { get; set; }
+             
     }
 }

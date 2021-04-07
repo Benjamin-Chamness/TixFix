@@ -22,7 +22,7 @@ namespace TixFix.Services
         public bool CreateTicket(TicketCreate model)
         {
             var entity =
-                new Ticket()
+                new Data.TicketDisplay()
                 {
                     OwnerId = _userId,
                     Opponent = model.Opponent,

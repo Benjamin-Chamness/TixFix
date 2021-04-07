@@ -18,21 +18,6 @@ namespace TixFix.Services
             _userId = userId;
         }
 
-        /*public bool CreateOpponent(OpponentCreate model)
-        {
-            var entity = new Opponent()
-            {
-                OpponentId = model.OpponentId,
-                Name = model.Name
-            };
-
-            using (var ctx = new ApplicationDbContext())
-            {
-                ctx.Opponents.Add(entity);
-                return ctx.SaveChanges() == 1;
-            }
-        }*/
-
         public List<OpponentListItem> GetOpponents()
         {
             List<Opponent> opponents = _context.Opponents.ToList();
@@ -54,6 +39,7 @@ namespace TixFix.Services
                 var entity = ctx.Opponents.Single(o => o.EventId == model.EventId);
                 entity.EventId = model.EventId;
                 entity.Name = model.Name;
+                
                
                 return ctx.SaveChanges() > 0;
             }
@@ -83,7 +69,8 @@ namespace TixFix.Services
             {
                 EventId = model.EventId,
                 Name = model.Name,
-                Stadium = model.Stadium
+                Stadium = model.Stadium,
+                              
             };
         }
     }

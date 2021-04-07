@@ -11,7 +11,7 @@ namespace TixFix.Models
     public class TicketDetail
     {
         public int TicketId { get; set; }
-        //public Guid OwnerId { get; set; }
+        
         
         public virtual Opponent Opponent { get; set; }
 

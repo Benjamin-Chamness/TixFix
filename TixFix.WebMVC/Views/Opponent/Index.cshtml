@@ -30,9 +30,11 @@
         <th>
             @Html.DisplayNameFor(model => model.Stadium)
         </th>
+        
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model) 
+{
 <tr>
     <td>
         @Html.DisplayFor(modelItem => item.EventId)

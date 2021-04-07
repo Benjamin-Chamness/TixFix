@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TixFix.Data
 {
-    public class Ticket
+    public class TicketDisplay
     {
         [Key]
         public int TicketId { get; set; }
