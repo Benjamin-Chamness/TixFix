@@ -66,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TicketCreate.cs" />
     <Compile Include="TicketDetail.cs" />
+    <Compile Include="TicketDisplay.cs" />
     <Compile Include="TicketEdit.cs" />
     <Compile Include="TicketListItem.cs" />
   </ItemGroup>

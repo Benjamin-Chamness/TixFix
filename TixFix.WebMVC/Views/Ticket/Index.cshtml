@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>All Tickets</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -28,9 +28,6 @@
             @Html.DisplayNameFor(model => model.Opponent)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SeatId)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
@@ -47,9 +44,7 @@
     <td>
         @Html.DisplayFor(modelItem => item.Opponent)
     </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.SeatId)
-    </td>
+    
     <td>
         @Html.DisplayFor(modelItem => item.Price)
     </td>
@@ -60,7 +55,7 @@
         @Html.DisplayFor(modelItem => item.IsAvailable)
     </td>
     <td>
-        @Html.ActionLink("Change", "Edit", new { id = item.TicketId }) |
+        @Html.ActionLink("Update", "Edit", new { id = item.TicketId }) |
         @Html.ActionLink("More Info", "Details", new { id = item.TicketId }) |
         @Html.ActionLink("Remove", "Delete", new { id = item.TicketId })
     </td>

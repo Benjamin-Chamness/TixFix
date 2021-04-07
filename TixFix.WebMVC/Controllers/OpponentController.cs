@@ -22,12 +22,12 @@ namespace TixFix.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult Create()
+        /*public ActionResult Create()
         {
             return View();
         }
 
-        /*[HttpPost]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(OpponentCreate model)
         {
@@ -60,7 +60,7 @@ namespace TixFix.WebMVC.Controllers
             var detail = service.GetOpponentById(id);
             var model = new OpponentEdit
             {
-                OpponentId = detail.OpponentId,
+                EventId = detail.EventId,
                 Name = detail.Name
             };
             return View(model);
@@ -72,7 +72,7 @@ namespace TixFix.WebMVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.OpponentId != id)
+            if (model.EventId != id)
             {
                 ModelState.AddModelError("", "Id does not match");
                 return View(model);

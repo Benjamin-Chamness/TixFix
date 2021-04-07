@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace TixFix.Models
 {
-    public class OpponentEdit
+    public class TicketDisplay
     {
-        public int EventId { get; set; }
-        public string Stadium { get; set; }
-        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public DateTime DateOfGame { get; set; }
     }
 }

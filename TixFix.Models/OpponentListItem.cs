@@ -10,12 +10,13 @@ namespace TixFix.Models
 {
     public class OpponentListItem
     {
-        public int OpponentId { get; set; }
+        public int EventId { get; set; }
+        public string Stadium { get; set; }
 
         [Required]
         public string Name { get; set; }
 
-        [Display (Name= "Ticket List")]
-        public virtual List<Ticket> Tickets { get; set; }
+        //[Display (Name= "Ticket List")]
+        //public virtual List<Ticket> Tickets { get; set; }
     }
 }

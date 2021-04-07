@@ -4,18 +4,18 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Opponent Information</h2>
 
 <div>
-    <h4>OpponentDetail</h4>
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.OpponentId)
+            @Html.DisplayNameFor(model => model.EventId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.OpponentId)
+            @Html.DisplayFor(model => model.EventId)
         </dd>
 
         <dt>
@@ -26,9 +26,17 @@
             @Html.DisplayFor(model => model.Name)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Stadium)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stadium)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new {  id = Model.OpponentId }) |
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.EventId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

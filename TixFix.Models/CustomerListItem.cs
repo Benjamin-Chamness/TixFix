@@ -17,7 +17,8 @@ namespace TixFix.Models
         public string LastName { get; set; }
 
         [ForeignKey(nameof(Ticket))]
-        public List<Ticket> Tickets { get; set; }
+        public List<Ticket> ListOfTickets { get; set; }
+        public virtual Ticket Tickets { get; set; }
 
     }
 }

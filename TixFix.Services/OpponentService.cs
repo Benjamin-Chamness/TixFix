@@ -43,7 +43,7 @@ namespace TixFix.Services
         public OpponentDetail GetOpponentById(int id)
         {
             
-                Opponent opponentToGet = _context.Opponents.Single(o => o.OpponentId == id);
+                Opponent opponentToGet = _context.Opponents.Single(o => o.EventId == id);
                 return CreateOpponentDetail(opponentToGet);
         }
 
@@ -51,18 +51,18 @@ namespace TixFix.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Opponents.Single(o => o.OpponentId == model.OpponentId);
-                entity.OpponentId = model.OpponentId;
+                var entity = ctx.Opponents.Single(o => o.EventId == model.EventId);
+                entity.EventId = model.EventId;
                 entity.Name = model.Name;
-
+               
                 return ctx.SaveChanges() > 0;
             }
         }
 
-        public bool DeleteOpponent(int opponentId)
+        public bool DeleteOpponent(int eventId)
         {
-            Opponent opponentToDelete = _context.Opponents.Single(o => o.OpponentId == opponentId);
-            _context.Opponents.Remove(opponentToDelete);
+            Opponent eventToDelete = _context.Opponents.Single(o => o.EventId == eventId);
+            _context.Opponents.Remove(eventToDelete);
             return _context.SaveChanges() > 0;
         }
 
@@ -71,8 +71,9 @@ namespace TixFix.Services
         {
             return new OpponentListItem()
             {
-                OpponentId = model.OpponentId,
-                Name = model.Name
+                EventId = model.EventId,
+                Name = model.Name,
+                Stadium = model.Stadium
             };
         }
 
@@ -80,8 +81,9 @@ namespace TixFix.Services
         {
             return new OpponentDetail()
             {
-                OpponentId = model.OpponentId,
-                Name = model.Name
+                EventId = model.EventId,
+                Name = model.Name,
+                Stadium = model.Stadium
             };
         }
     }

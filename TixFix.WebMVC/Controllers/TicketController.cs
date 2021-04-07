@@ -52,15 +52,15 @@ namespace TixFix.WebMVC.Controllers
         public ActionResult Details(int id)
         {
             var svc = CreateTicketService();
-            var model = svc.GetTicketById(id);
+            var model = svc.GetTicketsById((int)id);
 
             return View(model);
         }
-
+                
         public ActionResult Edit(int id)
         {
             var service = CreateTicketService();
-            var detail = service.GetTicketById(id);
+            var detail = service.GetTicketsById(id);
             var model = new TicketEdit
             {
                 TicketId = detail.TicketId,
@@ -96,10 +96,10 @@ namespace TixFix.WebMVC.Controllers
         }
 
         [ActionName("Delete")]
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
             var svc = CreateTicketService();
-            var model = svc.GetTicketById((int)id);
+            var model = svc.GetTicketsById(id);
 
             return View(model);
         }
@@ -115,7 +115,7 @@ namespace TixFix.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
-
+        //Helper Method
         private TicketService CreateTicketService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

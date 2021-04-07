@@ -23,7 +23,6 @@ namespace TixFix.Data
         [Required]
         public string Email { get; set; }
 
-        
         public virtual Ticket Tickets { get; set; }
     }
 }

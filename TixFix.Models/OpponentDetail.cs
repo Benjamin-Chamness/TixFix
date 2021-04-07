@@ -8,7 +8,8 @@ namespace TixFix.Models
 {
     public class OpponentDetail
     {
-        public int OpponentId { get; set; }
+        public int EventId { get; set; }
         public string Name { get; set; }
+        public string Stadium { get; set; }
     }
 }

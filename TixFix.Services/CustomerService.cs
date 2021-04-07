@@ -43,7 +43,8 @@ namespace TixFix.Services
                     {
                         CustomerId = c.CustomerId,
                         FirstName = c.FirstName,
-                        LastName = c.LastName
+                        LastName = c.LastName,
+                        Tickets = c.Tickets
                     });
 
                 return query.ToArray();

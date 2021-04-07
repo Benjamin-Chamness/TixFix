@@ -11,6 +11,7 @@ namespace TixFix.Services
     public class TicketService
     {
         private readonly Guid _userId;
+        private readonly ApplicationDbContext _context = new ApplicationDbContext();
 
         public TicketService(Guid userId)
         {
@@ -24,9 +25,8 @@ namespace TixFix.Services
                 new Ticket()
                 {
                     OwnerId = _userId,
-                    //TicketId = model.TicketId,
                     Opponent = model.Opponent,
-                    SeatId = model.SeatId,
+                    //SeatId = model.SeatId,
                     Price = model.Price,
                     DateOfGame = model.DateOfGame,
                     IsAvailable = model.IsAvailable,
@@ -51,8 +51,8 @@ namespace TixFix.Services
                             t =>
                                 new TicketListItem
                                 {
-                                    //TicketId = t.TicketId,
-                                    SeatId = t.SeatId,
+                                    TicketId = t.TicketId,
+                                    //SeatId = t.SeatId,
                                     Price = t.Price,
                                     DateOfGame = t.DateOfGame,
                                     IsAvailable = t.IsAvailable,
@@ -63,28 +63,22 @@ namespace TixFix.Services
             }
         }
 
-        public TicketDetail GetTicketById(int id)
+        public TicketDetail GetTicketsById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
-                    ctx
-                        .Tickets
-                        .Single(t => t.TicketId == id && t.OwnerId == _userId);
-                return
-                    new TicketDetail
-                    {
-                        //TicketId = entity.TicketId,
-                        SeatId = entity.SeatId,
-                        Price = entity.Price,
-                        DateOfGame = entity.DateOfGame,
-                        IsAvailable = entity.IsAvailable,
-                        Opponent = new Opponent
-                        {
-                            Name = entity.Opponent.Name
-                        }
-                    };
+                var entity = ctx.Tickets
+                    .Single(t => t.TicketId == id && t.OwnerId == _userId);
+                return new TicketDetail
+                {
+                    TicketId = entity.TicketId,
+                    Opponent = entity.Opponent,
+                    Price = entity.Price,
+                    DateOfGame = entity.DateOfGame,
+                    IsAvailable = entity.IsAvailable
+                };
             }
+
         }
 
         public bool UpdateTicket(TicketEdit model)
@@ -95,7 +89,7 @@ namespace TixFix.Services
                             .Tickets
                             .Single(t => t.TicketId == model.TicketId && t.OwnerId == _userId);
 
-                entity.TicketId = model.TicketId;
+                //entity.TicketId = model.TicketId;
                 entity.Price = model.Price;
                 entity.DateOfGame = model.DateOfGame;
                 entity.IsAvailable = model.IsAvailable;
@@ -105,19 +99,22 @@ namespace TixFix.Services
             }
         }
 
-        public bool DeleteTicket(int id)
+        public bool DeleteTicket(int ticketId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Tickets
-                        .Single(t => t.OwnerId == _userId);
+                        .Single(t => t.TicketId == ticketId && t.OwnerId == _userId);
 
                 ctx.Tickets.Remove(entity);
 
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges() > 0;
             }
         }
     }
 }
+/*{
+    Name = entity.Opponent.Name
+                        }*/

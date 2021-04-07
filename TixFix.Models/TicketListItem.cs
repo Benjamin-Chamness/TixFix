@@ -13,13 +13,11 @@ namespace TixFix.Models
         
         public int TicketId { get; set; }
                
-        [Display(Name = "Opponent")]
-        public int OpponentId { get; set; }
-
+        
         public virtual Opponent Opponent { get; set; }
 
-        [Display(Name = "Seat Number")]
-        public int SeatId { get; set; }
+        //[Display(Name = "Seat Number")]
+        //public int SeatId { get; set; }
 
         public decimal Price { get; set; }
         
