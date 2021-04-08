@@ -3,11 +3,74 @@
     color: red;
 }
 
+.wrapper{
+    min-height: 100%;
+    width: 1400px;
+}
+
+footer{
+    background: red;
+    color: black;
+    width: 1400px;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Felix Titling';
+    position: absolute;
+}
+
 .jumbotron{
     background: white;
     color: red;
+    width: 750px;
+    float: left;
+    text-align: center;
 }
+
 .jumbotron img{
-    width: 200px;
+    width: 230px;
+    height: 150px;
+}
+
+.jumbotron h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 75px;
+}
+
+.jumbotron p{
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+}
+
+.col-md-4 h2{
+   color: red;
+   font-size: 35px;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.col-md-4 p{
+    color: white;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cindex h2{
+    color: white;
+    font-size: 35px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.cindex img{
+    float: right;
+    width: 100px;
     height: 100px;
 }
+
+.table{
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+}
+
+
+
+    
