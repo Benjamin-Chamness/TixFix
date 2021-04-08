@@ -1,10 +1,16 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<head>
+    <link href="~/Content/Index.css" rel="stylesheet" />
+
+</head>
 
 <div class="jumbotron">
+
+    <img src="~/Content/NewFolder1/706.png" />
     <h1>Welcome To TixFix!</h1>
-    <p class="lead">Tix Fix is a simple web app powered by ASP.NET Web MVC that allows customers to buy and sell tickets for Cincinnati Reds home games.</p>
+    <p class="lead">Tix Fix is a simple web app powered by ASP.NET Web MVC that allows customers to post tickets for Cincinnati Reds games.</p>
     <p>@Html.ActionLink("Learn More", "About", null, new { @class = "btn btn-primary btn-large" })</p>
 </div>
 
@@ -23,8 +29,8 @@
         <p>@Html.ActionLink("View Opponents", "Index", "Opponent", null, new { @class = "btn btn-primary btn-large" })</p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Questions?</h2>
+        <p>If you have any questions or concerns regarding a recent post, please reach out to us anytime.</p>
+        <p>@Html.ActionLink("Contact Us", "Contact", null, new { @class = "btn btn-primary btn-large" })</p>
     </div>
 </div>

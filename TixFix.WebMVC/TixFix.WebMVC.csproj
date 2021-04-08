@@ -187,6 +187,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Index.css" />
+    <Content Include="Content\NewFolder1\194-1946027_reds-cincinnati-reds-logo-1890.png" />
+    <Content Include="Content\NewFolder1\706.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

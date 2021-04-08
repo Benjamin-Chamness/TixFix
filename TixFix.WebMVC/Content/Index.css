@@ -1,2 +1,13 @@
 ﻿body {
+    background: black;
+    color: red;
+}
+
+.jumbotron{
+    background: white;
+    color: red;
+}
+.jumbotron img{
+    width: 200px;
+    height: 100px;
 }
