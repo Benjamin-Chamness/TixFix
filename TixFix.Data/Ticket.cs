@@ -32,10 +32,10 @@ namespace TixFix.Data
         public virtual Opponent Opponent { get; set; }
 
 
-        //[ForeignKey (nameof(Seat))]
-        //[Display(Name = "Seat Number")]
-        //public int SeatId { get; set; }
-        //public virutal Seat StadiumSeating { get; set; }
+        [ForeignKey(nameof(Stadium))]
+        [Display(Name = "Stadium")]
+        public int StadiumId { get; set; }
+        public virtual Stadium Stadium { get; set; }
                 
         
 

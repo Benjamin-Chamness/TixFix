@@ -3,17 +3,14 @@
 @{
     ViewBag.Title = "Index";
 }
-<head>
-    <link href="~/Content/Index.css" rel="stylesheet" />
 
-</head>
 <div class="cindex">
     <img src="~/Content/NewFolder1/194-1946027_reds-cincinnati-reds-logo-1890.png" />
 
     <h2>Index</h2>
 
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Back To Home", "Index", "Home")
     </p>
     <table class="table">
         <tr>
@@ -21,10 +18,13 @@
                 @Html.DisplayNameFor(model => model.StadiumId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.StadiumName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EventId)
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opponent)
             </th>
             <th></th>
         </tr>
@@ -36,15 +36,18 @@
                     @Html.DisplayFor(modelItem => item.StadiumId)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => item.StadiumName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.EventId)
+                    @Html.DisplayFor(modelItem => item.Location)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.DisplayFor(modelItem => item.Opponent)
+                </td>
+                <td>
+                    @Html.ActionLink("Update", "Edit", new { id = item.StadiumId }) |
+                    @Html.ActionLink("More Info", "Details", new { id = item.StadiumId }) |
+                    @Html.ActionLink("Remove", "Delete", new { id = item.StadiumId })
                 </td>
             </tr>
         }

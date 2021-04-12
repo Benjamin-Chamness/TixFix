@@ -15,8 +15,7 @@ namespace TixFix.Models
         
         public virtual Opponent Opponent { get; set; }
 
-        //[Display(Name = "Seat Number")]
-       // public int SeatId { get; set; }
+        public virtual Stadium Stadium { get; set; }
 
         [Required]
         public decimal Price { get; set; }

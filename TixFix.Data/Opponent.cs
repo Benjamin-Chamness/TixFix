@@ -13,8 +13,6 @@ namespace TixFix.Data
         [Key]
         public int EventId { get; set; }
        
-        public string Stadium { get; set; }
-
         [Required]
         public string Name { get; set; }
 

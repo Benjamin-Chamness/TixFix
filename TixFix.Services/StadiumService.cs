@@ -25,13 +25,31 @@ namespace TixFix.Services
             return stadiumListItems;
         }
 
+        public StadiumDetail GetStadiumById(int id)
+        {
+            Stadium stadiumToGet = _context.Stadiums.Single(s => s.StadiumId == id);
+            return CreateStadiumDetail(stadiumToGet);
+        }
+
         //Helper Methods
         public StadiumListItem CreateStadiumListItem(Stadium model)
         {
             return new StadiumListItem()
             {
-                EventId = model.EventId,
-                StadiumName = model.StadiumName
+                StadiumId = model.StadiumId,
+                StadiumName = model.StadiumName,
+                Location = model.Location,
+                Opponent = model.Opponent
+            };
+        }
+
+        public StadiumDetail CreateStadiumDetail(Stadium model)
+        {
+            return new StadiumDetail()
+            {
+                StadiumName = model.StadiumName,
+                Location = model.Location,
+                Opponent = model.Opponent
             };
         }
 

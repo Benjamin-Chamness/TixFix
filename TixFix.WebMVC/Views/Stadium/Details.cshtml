@@ -1,0 +1,42 @@
+﻿@model TixFix.Models.StadiumDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StadiumDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StadiumId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StadiumId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StadiumName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StadiumName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StadiumId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

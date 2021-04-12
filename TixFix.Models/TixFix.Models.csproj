@@ -58,13 +58,11 @@
     <Compile Include="CustomerDetail.cs" />
     <Compile Include="CustomerEdit.cs" />
     <Compile Include="CustomerListItem.cs" />
-    <Compile Include="OpponentCreate.cs" />
     <Compile Include="OpponentDetail.cs" />
-    <Compile Include="OpponentDisplayItem.cs" />
     <Compile Include="OpponentEdit.cs" />
     <Compile Include="OpponentListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StadiumCreate.cs" />
+    <Compile Include="StadiumDetail.cs" />
     <Compile Include="StadiumListItem.cs" />
     <Compile Include="TicketCreate.cs" />
     <Compile Include="TicketDetail.cs" />

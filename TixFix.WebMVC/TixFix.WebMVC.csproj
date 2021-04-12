@@ -256,7 +256,7 @@
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\Delete.cshtml" />
     <Content Include="Views\Stadium\Index.cshtml" />
-    <Content Include="Views\Stadium\Create.cshtml" />
+    <Content Include="Views\Stadium\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

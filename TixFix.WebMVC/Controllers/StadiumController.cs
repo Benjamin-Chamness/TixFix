@@ -22,6 +22,21 @@ namespace TixFix.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreateStadiumService();
+            var model = svc.GetStadiumById(id);
 
+            return View(model);
+        }
+
+
+        //Helper method:
+        private StadiumService CreateStadiumService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new StadiumService(userId);
+            return service;
+        }
     }
 }

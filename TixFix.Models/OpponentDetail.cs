@@ -11,7 +11,7 @@ namespace TixFix.Models
     {
         public int EventId { get; set; }
         public string Name { get; set; }
-        public string Stadium { get; set; }
+        
 
 
     }
