@@ -3,57 +3,63 @@
 @{
     ViewBag.Title = "Details";
 }
+<head>
+    <link href="~/Content/Index.css" rel="stylesheet" />
 
-<h2>Ticket Information</h2>
+</head>
+<div class="cindex">
+    <img src="~/Content/NewFolder1/194-1946027_reds-cincinnati-reds-logo-1890.png" />
+    <h2>Ticket Information</h2>
 
-<div>
-    
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TicketId)
-        </dt>
+    <div>
 
-        <dd>
-            @Html.DisplayFor(model => model.TicketId)
-        </dd>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TicketId)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Opponent)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TicketId)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Opponent)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Opponent)
+            </dt>
 
-       
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Opponent)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfGame)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DateOfGame)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsAvailable)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.DateOfGame)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IsAvailable)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DateOfGame)
+            </dd>
 
-    </dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsAvailable)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsAvailable)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Update", "Edit", new { id = Model.TicketId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Update", "Edit", new {  id = Model.TicketId  }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

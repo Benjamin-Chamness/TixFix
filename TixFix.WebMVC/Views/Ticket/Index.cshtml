@@ -3,63 +3,70 @@
 @{
     ViewBag.Title = "Index";
 }
+<head>
+    <link href="~/Content/Index.css" rel="stylesheet" />
 
-<h2>All Tickets</h2>
+</head>
+<div class="cindex">
+    <img src="~/Content/NewFolder1/194-1946027_reds-cincinnati-reds-logo-1890.png" />
+    <h2>All Tickets</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
 
-@if (TempData.ContainsKey("SaveResult"))
-{
-<div class="alert alert-success fade in" role="alert">
+    @if (TempData.ContainsKey("SaveResult"))
+    {
+        <div class="alert alert-success fade in" role="alert">
 
-    <button type="button" class="close" data-dismiss="alert">
-        <span>&times;</span>
-    </button>
-    @TempData["SaveResult"]
+            <button type="button" class="close" data-dismiss="alert">
+                <span>&times;</span>
+            </button>
+            @TempData["SaveResult"]
+        </div>
+    }
+
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Opponent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfGame)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAvailable)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opponent)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfGame)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAvailable)
+                </td>
+                <td>
+                    @Html.ActionLink("Update", "Edit", new { id = item.TicketId }) |
+                    @Html.ActionLink("More Info", "Details", new { id = item.TicketId }) |
+                    @Html.ActionLink("Remove", "Delete", new { id = item.TicketId })
+                </td>
+            </tr>
+        }
+
+    </table>
 </div>
-}
-
-<table class="table">
-    <tr>
-        
-        <th>
-            @Html.DisplayNameFor(model => model.Opponent)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateOfGame)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsAvailable)
-        </th>
-    </tr>
-
-@foreach (var item in Model) {
-<tr>
-    
-    <td>
-        @Html.DisplayFor(modelItem => item.Opponent)
-    </td>
-    
-    <td>
-        @Html.DisplayFor(modelItem => item.Price)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DateOfGame)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.IsAvailable)
-    </td>
-    <td>
-        @Html.ActionLink("Update", "Edit", new { id = item.TicketId }) |
-        @Html.ActionLink("More Info", "Details", new { id = item.TicketId }) |
-        @Html.ActionLink("Remove", "Delete", new { id = item.TicketId })
-    </td>
-</tr>
-}
-
-</table>

@@ -3,40 +3,47 @@
 @{
     ViewBag.Title = "Details";
 }
+<head>
+    <link href="~/Content/Index.css" rel="stylesheet" />
 
-<h2>Opponent Information</h2>
+</head>
+<div class="cindex">
+    <img src="~/Content/NewFolder1/194-1946027_reds-cincinnati-reds-logo-1890.png" />
 
-<div>
-    
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.EventId)
-        </dt>
+    <h2>Opponent Information</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.EventId)
-        </dd>
+    <div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.EventId)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.EventId)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Stadium)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Stadium)
-        </dd>
-               
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Stadium)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Stadium)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.EventId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new {  id = Model.EventId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
