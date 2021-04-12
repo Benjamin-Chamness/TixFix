@@ -9,10 +9,7 @@ using TixFix.Data;
 namespace TixFix.Models
 {
     public class TicketCreate
-    {
-       
-        public int TicketId { get; set; }
-        
+    {  
         
         public virtual Opponent Opponent { get; set; }
 

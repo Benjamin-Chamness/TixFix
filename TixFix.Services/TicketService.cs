@@ -26,6 +26,7 @@ namespace TixFix.Services
                 {
                     OwnerId = _userId,
                     Opponent = model.Opponent,
+                    Stadium = model.Stadium,
                     Price = model.Price,
                     DateOfGame = model.DateOfGame,
                     IsAvailable = model.IsAvailable,
@@ -54,7 +55,8 @@ namespace TixFix.Services
                                     Price = t.Price,
                                     DateOfGame = t.DateOfGame,
                                     IsAvailable = t.IsAvailable,
-                                    Opponent = t.Opponent
+                                    Opponent = t.Opponent,
+                                    Stadium = t.Stadium
                                 });
 
                 return query.ToArray();
@@ -71,6 +73,7 @@ namespace TixFix.Services
                 {
                     TicketId = entity.TicketId,
                     Opponent = entity.Opponent,
+                    Stadium = entity.Stadium,
                     Price = entity.Price,
                     DateOfGame = entity.DateOfGame,
                     IsAvailable = entity.IsAvailable

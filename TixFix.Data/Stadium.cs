@@ -12,7 +12,7 @@ namespace TixFix.Data
     {
         [Key]
         public int StadiumId { get; set; }
-        public virtual Opponent Opponent { get; set; }
+        //public virtual Opponent Opponent { get; set; }
 
         [Required]
         [Display(Name ="Stadium")]

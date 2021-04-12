@@ -31,6 +31,26 @@ namespace TixFix.Services
             return CreateStadiumDetail(stadiumToGet);
         }
 
+        public bool UpdateStadium(StadiumEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Stadiums.SingleOrDefault(s => s.StadiumId == model.StadiumId);
+                entity.StadiumId = model.StadiumId;
+                entity.Location = model.Location;
+                entity.StadiumName = model.StadiumName;
+
+                return ctx.SaveChanges() > 0;
+            }
+        }
+
+        public bool DeleteStadium(int stadiumId)
+        {
+            Stadium stadiumToDelete = _context.Stadiums.SingleOrDefault(s => s.StadiumId == stadiumId);
+            _context.Stadiums.Remove(stadiumToDelete);
+            return _context.SaveChanges() > 0;
+        }
+
         //Helper Methods
         public StadiumListItem CreateStadiumListItem(Stadium model)
         {
@@ -38,8 +58,8 @@ namespace TixFix.Services
             {
                 StadiumId = model.StadiumId,
                 StadiumName = model.StadiumName,
-                Location = model.Location,
-                Opponent = model.Opponent
+                Location = model.Location
+                
             };
         }
 
@@ -47,9 +67,9 @@ namespace TixFix.Services
         {
             return new StadiumDetail()
             {
+                StadiumId = model.StadiumId,
                 StadiumName = model.StadiumName,
-                Location = model.Location,
-                Opponent = model.Opponent
+                Location = model.Location
             };
         }
 

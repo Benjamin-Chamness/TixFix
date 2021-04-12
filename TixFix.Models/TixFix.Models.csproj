@@ -63,6 +63,7 @@
     <Compile Include="OpponentListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StadiumDetail.cs" />
+    <Compile Include="StadiumEdit.cs" />
     <Compile Include="StadiumListItem.cs" />
     <Compile Include="TicketCreate.cs" />
     <Compile Include="TicketDetail.cs" />

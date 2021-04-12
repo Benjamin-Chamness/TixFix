@@ -14,9 +14,9 @@ namespace TixFix.Models
 
         [Display(Name="Stadium")]
         public string StadiumName { get; set; }
-        public virtual Opponent Opponent { get; set; }
+        //public virtual Opponent Opponent { get; set; }
         public string Location { get; set; }
-        public int EventId { get; set; }
+        
         
         
     }
