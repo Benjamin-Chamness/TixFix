@@ -26,7 +26,6 @@ namespace TixFix.Services
                 {
                     OwnerId = _userId,
                     Opponent = model.Opponent,
-                    //SeatId = model.SeatId,
                     Price = model.Price,
                     DateOfGame = model.DateOfGame,
                     IsAvailable = model.IsAvailable,
@@ -52,7 +51,6 @@ namespace TixFix.Services
                                 new TicketListItem
                                 {
                                     TicketId = t.TicketId,
-                                    //SeatId = t.SeatId,
                                     Price = t.Price,
                                     DateOfGame = t.DateOfGame,
                                     IsAvailable = t.IsAvailable,

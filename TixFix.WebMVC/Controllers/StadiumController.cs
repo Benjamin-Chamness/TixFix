@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TixFix.Models;
+using TixFix.Services;
 
 namespace TixFix.WebMVC.Controllers
 {
@@ -13,8 +15,13 @@ namespace TixFix.WebMVC.Controllers
         // GET: Stadium
         public ActionResult Index()
         {
-            var model = new StadiumListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new StadiumService(userId);
+            var model = service.GetStadiums();
+
             return View(model);
         }
+
+
     }
 }

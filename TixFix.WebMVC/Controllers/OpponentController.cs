@@ -22,30 +22,7 @@ namespace TixFix.WebMVC.Controllers
             return View(model);
         }
 
-        /*public ActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(OpponentCreate model)
-        {
-            if (!ModelState.IsValid) return View(model);
-
-            var service = CreateOpponentService();
-
-            if (service.CreateOpponent(model))
-            {
-                TempData["SaveResult"] = "Your opponent was created.";
-                return RedirectToAction("Index");
-            };
-
-            ModelState.AddModelError("", "Opponent could not be created.");
-
-            return View(model);
-        }*/
-
+       
         public ActionResult Details(int id)
         {
             var svc = CreateOpponentService();

@@ -35,6 +35,7 @@ namespace TixFix.Data
         public DbSet <Ticket> Tickets { get; set; }
         public DbSet<Opponent> Opponents { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Stadium> Stadiums { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

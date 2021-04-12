@@ -13,7 +13,7 @@ namespace TixFix.Data
         [Key]
         public int StadiumId { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string StadiumName { get; set; }
 
         [ForeignKey(nameof(Opponent))]
         public int EventId { get; set; }

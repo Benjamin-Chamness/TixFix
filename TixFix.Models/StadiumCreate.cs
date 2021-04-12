@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TixFix.Data;
 
 namespace TixFix.Models
 {
-    public class StadiumListItem
+    public class StadiumCreate
     {
         public int StadiumId { get; set; }
-        [Display(Name="Stadium")]
         public string StadiumName { get; set; }
-        public int EventId { get; set; }
-        
-        
+        public virtual Opponent Opponent { get; set; }
     }
 }
