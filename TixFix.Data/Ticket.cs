@@ -33,7 +33,7 @@ namespace TixFix.Data
 
 
         [ForeignKey(nameof(Stadium))]
-        [Display(Name = "Stadium")]
+        [Display(Name = "Opponent")]
         public int StadiumId { get; set; }
         public virtual Stadium Stadium { get; set; }
                 

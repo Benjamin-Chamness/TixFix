@@ -14,6 +14,7 @@ namespace TixFix.Models
         
         [Required]
         public string Name { get; set; }
+        public virtual Stadium Stadium { get; set; }
 
         
     }

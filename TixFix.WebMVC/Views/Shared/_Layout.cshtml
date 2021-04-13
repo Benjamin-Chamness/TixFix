@@ -35,9 +35,9 @@
                             {
                                 <li>@Html.ActionLink("Tickets", "Index", "Ticket")</li>
                             }
+                            <li>@Html.ActionLink("Stadium Info", "Index", "Stadium")</li>
                             <li>@Html.ActionLink("Opponent Info", "Index", "Opponent")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            
                         </ul>
                         @Html.Partial("_LoginPartial")
                     </div>
@@ -50,6 +50,7 @@
 
             <footer>
                 <p>&copy; @DateTime.Now.Year - TixFix Inc.</p>
+               
             </footer>
             @Scripts.Render("~/bundles/jquery")
             @Scripts.Render("~/bundles/bootstrap")

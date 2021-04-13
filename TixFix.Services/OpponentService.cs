@@ -58,7 +58,8 @@ namespace TixFix.Services
             return new OpponentListItem()
             {
                 EventId = model.EventId,
-                Name = model.Name
+                Name = model.Name,
+               
             };   
         }
 
@@ -67,7 +68,8 @@ namespace TixFix.Services
             return new OpponentDetail()
             {
                 EventId = model.EventId,
-                Name = model.Name
+                Name = model.Name,
+                Stadium = model.Stadium
                               
             };
         }

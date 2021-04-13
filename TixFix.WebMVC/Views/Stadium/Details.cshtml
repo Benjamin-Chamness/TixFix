@@ -3,40 +3,43 @@
 @{
     ViewBag.Title = "Details";
 }
+<div class="cindex">
+    <img src="~/Content/NewFolder1/194-1946027_reds-cincinnati-reds-logo-1890.png" />
 
-<h2>Details</h2>
+    <h2>Stadium Information</h2>
 
-<div>
-    <h4>StadiumDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.StadiumId)
-        </dt>
+    <div>
+        
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.StadiumId)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.StadiumId)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.StadiumId)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Location)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Location)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StadiumName)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.StadiumName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.StadiumName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.StadiumName)
+            </dd>
 
-    </dl>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.StadiumId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.StadiumId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

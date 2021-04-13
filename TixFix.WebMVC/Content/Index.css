@@ -13,10 +13,11 @@ footer{
     color: black;
     width: 1400px;
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Felix Titling';
     position: absolute;
 }
+
 
 .jumbotron{
     background: white;
@@ -69,6 +70,9 @@ footer{
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 15px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
 }
 
 
