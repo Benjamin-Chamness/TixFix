@@ -13,5 +13,7 @@ Wireframe: [wireframe.pdf](https://github.com/Benjamin-Chamness/TixFix/files/629
 
 Project Planning Template: [SD Project Planning Template.docx](https://github.com/Benjamin-Chamness/TixFix/files/6297084/SD.Project.Planning.Template.docx)
 
+Quick Link to Website: https://tixfixwebmvc.azurewebsites.net/
+
 
 
